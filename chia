@@ -1,0 +1,22 @@
+sudo yum update -y
+sudo yum install python3 git -y
+
+git clone https://github.com/Chia-Network/chia-blockchain.git -b latest
+cd chia-blockchain
+
+sh install.sh
+
+. ./activate
+
+
+# Or install chia-blockchain as a binary package
+curl -sL https://rpm.nodesource.com/setup_10.x | sudo bash -
+sudo yum install -y nodejs
+
+python3.7 -m venv venv
+ln -s venv/bin/activate
+. ./activate
+pip install --upgrade pip
+pip install -i https://download.chia.net/simple/ miniupnpc==2.1 setproctitle==1.1.10
+
+pip install chia-blockchain==1.0.5
